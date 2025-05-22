@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'durgeshyadav/ci-cd-test-app'
+        DOCKER_IMAGE = 'dugreshyadav/ci-cd-test-app'
         EC2_HOST = 'ec2-user@15.206.172.142'
         EC2_KEY = credentials('ec2-ssh-key')  // Add in Jenkins > Credentials
     }
