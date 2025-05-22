@@ -1,3 +1,5 @@
+def webServerIp = "65.0.132.46"  // IP yaha define karo
+
 pipeline {
     agent any
 
@@ -38,7 +40,7 @@ pipeline {
             steps {
                 sshagent (credentials: ['ec2-ssh-key']) {
                     sh """
-                    ssh -o StrictHostKeyChecking=no $EC2_HOST '
+                    ssh -o StrictHostKeyChecking=no ec2-user@${webServerIp} '
                         docker pull $DOCKER_IMAGE &&
                         docker stop app || true &&
                         docker rm app || true &&
