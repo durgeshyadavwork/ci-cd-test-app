@@ -1,4 +1,4 @@
-def webServerIp = "65.0.132.46"  // IP yaha define karo
+def webServerIp = "65.0.132.46"  // IP yaha 
 
 pipeline {
     agent any
@@ -48,6 +48,11 @@ pipeline {
                     '
                     """
                 }
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                sh 'docker rmi $DOCKER_IMAGE:${BUILD_NUMBER}'
             }
         }
     }
